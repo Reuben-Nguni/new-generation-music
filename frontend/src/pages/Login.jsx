@@ -13,7 +13,7 @@ export default function AdminLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await api.post("/auth/login", { email, password });
+      const { data } = await api.post("/api/auth/login", { email, password });
       localStorage.setItem("token", data.token);
       alert("✅ Login successful!");
       navigate("/admin-dashboard");
