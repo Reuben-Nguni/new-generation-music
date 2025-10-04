@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     const fetchFeatured = async () => {
       try {
-        const { data } = await API.get("/posts?featured=true");
+        const { data } = await API.get("/api/posts?featured=true");
         if (Array.isArray(data)) {
           setFeatured(data);
         } else if (data.posts) {

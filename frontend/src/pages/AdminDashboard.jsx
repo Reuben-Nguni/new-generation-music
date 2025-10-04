@@ -24,7 +24,7 @@ export default function AdminDashboard({ onLogout }) {
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const { data } = await api.get("/posts");
+      const { data } = await api.get("/api/posts");
       setPosts(data || []);
     } catch (err) {
       console.error("Failed to fetch posts:", err);

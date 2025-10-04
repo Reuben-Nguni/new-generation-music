@@ -30,7 +30,7 @@ export default function Blog() {
 
   const fetchCategories = async () => {
     try {
-      const { data } = await API.get("/posts/categories");
+      const { data } = await API.get("/api/posts/categories");
       setCategories(data);
     } catch (err) {
       console.error("Category fetch error:", err);
