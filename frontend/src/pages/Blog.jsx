@@ -12,7 +12,7 @@ export default function Blog() {
   const fetchPosts = async (selectedCategory = category, term = searchTerm) => {
     try {
       setLoading(true);
-      let url = "/posts";
+      let url = "/api/posts"; // ✅ fixed base route
       const params = [];
       if (selectedCategory) params.push(`category=${selectedCategory}`);
       if (term) params.push(`search=${encodeURIComponent(term)}`);
@@ -30,7 +30,7 @@ export default function Blog() {
 
   const fetchCategories = async () => {
     try {
-      const { data } = await API.get("/api/posts/categories");
+      const { data } = await API.get("/api/posts/categories"); // ✅ fixed route
       setCategories(data);
     } catch (err) {
       console.error("Category fetch error:", err);
