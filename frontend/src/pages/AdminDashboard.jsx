@@ -71,13 +71,13 @@ export default function AdminDashboard({ onLogout }) {
       if (media) formData.append("media", media);
 
       if (editingPost) {
-        await api.put(`/posts/${editingPost._id}`, formData, {
+        await api.put(`/api/posts/${editingPost._id}`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
         alert("✅ Post updated successfully!");
         setEditingPost(null);
       } else {
-        await api.post("/posts", formData, {
+        await api.post("/api/posts", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
         alert("✅ Post created successfully!");
@@ -103,7 +103,7 @@ export default function AdminDashboard({ onLogout }) {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
     try {
-      await api.delete(`/posts/${id}`);
+      await api.delete(`/api/posts/${id}`);
       alert("✅ Post deleted successfully!");
       fetchPosts();
     } catch (err) {

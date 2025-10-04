@@ -8,7 +8,7 @@ export default function News() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const { data } = await API.get("/posts?category=News");
+        const { data } = await API.get("/api/posts?category=News");
         if (Array.isArray(data)) {
           setNewsPosts(data);
         } else if (data.posts) {
