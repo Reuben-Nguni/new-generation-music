@@ -7,18 +7,22 @@ export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const { data } = await api.post("/auth/login", { email, password });
+      const { data } = await api.post("/api/auth/login", { email, password });
       localStorage.setItem("token", data.token);
       alert("✅ Login successful!");
       navigate("/admin-dashboard");
     } catch (err) {
       console.error("Login error:", err.response?.data || err.message);
       alert("❌ Invalid credentials");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,8 +57,8 @@ export default function AdminLogin() {
           </button>
         </div>
 
-        <button type="submit" className="btn btn-primary w-100">
-          Login
+        <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
         </button>
       </form>
     </div>
