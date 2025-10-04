@@ -1,13 +1,15 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL, // must match the .env variable
+  baseURL: import.meta.env.VITE_API_URL, // ✅ This must be set in Vercel
 });
 
-api.interceptors.request.use((req) => {
+api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
-  if (token) req.headers.Authorization = `Bearer ${token}`;
-  return req;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
 });
 
 export default api;
