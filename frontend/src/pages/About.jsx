@@ -15,9 +15,6 @@ export default function About() {
 
   return (
     <>
-      {/* Spacer to push content below fixed navbar */}
-      <div style={{ height: "160px" }} />
-
       <div className="container py-5">
         {/* Intro Section */}
         <div className="text-center mb-5">

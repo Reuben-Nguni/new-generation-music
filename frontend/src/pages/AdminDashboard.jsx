@@ -152,9 +152,7 @@ export default function AdminDashboard({ onLogout }) {
   };
 
   return (
-    // Add top padding so content does not sit under a fixed navbar.
-    // Adjust paddingTop value to match your navbar height (e.g., 64-96px).
-    <div className="admin-dashboard" style={{ paddingTop: "80px" }}>
+    <div className="admin-dashboard">
       <div className="container mt-4">
         {/* Header */}
         <div className="d-flex justify-content-between align-items-center mb-4">

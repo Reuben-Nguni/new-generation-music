@@ -54,8 +54,6 @@ export default function Blog() {
 
   return (
     <>
-      <div style={{ height: "160px" }} />
-
       <div className="container py-5">
         <div className="text-center mb-5">
           <h2 className="fw-bold display-6">📝 Blog</h2>

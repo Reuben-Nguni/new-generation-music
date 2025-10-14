@@ -29,9 +29,6 @@ export default function AdminLogin() {
 
   return (
     <>
-      {/* Spacer to push content below fixed navbar */}
-      <div style={{ height: "160px" }} />
-
       {/* Branded Background */}
       <div
         style={{

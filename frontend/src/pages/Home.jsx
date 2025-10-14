@@ -34,9 +34,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Spacer to push content below fixed navbar */}
-      <div style={{ height: "160px" }} />
-
       <div className="container py-5">
         {/* Hero Section */}
         <div className="text-center mb-5">
