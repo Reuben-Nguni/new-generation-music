@@ -2,7 +2,53 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
   padding-top: 80px;
+  line-height: 1.6;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px; /* Adjust for smaller navbar on mobile */
+  }
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding-top: 60px;
+  }
+  .display-5 {
+    font-size: 2rem;
+  }
+  .display-6 {
+    font-size: 1.75rem;
+  }
+}
+
 .card {
   border-radius: 12px;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better button responsiveness */
+.btn {
+  white-space: nowrap;
+}
+
+/* Improve readability on small screens */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1rem;
+  }
+  .mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
 }

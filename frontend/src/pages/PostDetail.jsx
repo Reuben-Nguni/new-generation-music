@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import API from "../services/api";
-import { FaUser, FaCalendarAlt, FaDownload, FaArrowLeft } from "react-icons/fa";
+import { FaUser, FaCalendarAlt, FaDownload, FaArrowLeft, FaShareAlt, FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 export default function PostDetail() {
   const { id } = useParams();
@@ -137,6 +137,39 @@ export default function PostDetail() {
           <div className="col-12 col-md-8">
             <h1 className="display-5 fw-bold mb-4">{post.title}</h1>
 
+            {/* Social Sharing Buttons */}
+            <div className="mb-4">
+              <h6 className="fw-semibold mb-3">
+                <FaShareAlt className="me-2" /> Share this post
+              </h6>
+              <div className="d-flex gap-2 flex-wrap">
+                <button
+                  className="btn btn-outline-primary btn-sm"
+                  onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank')}
+                >
+                  <FaFacebook className="me-1" /> Facebook
+                </button>
+                <button
+                  className="btn btn-outline-info btn-sm"
+                  onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`, '_blank')}
+                >
+                  <FaTwitter className="me-1" /> Twitter
+                </button>
+                <button
+                  className="btn btn-outline-success btn-sm"
+                  onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(`${post.title} ${window.location.href}`)}`, '_blank')}
+                >
+                  <FaWhatsapp className="me-1" /> WhatsApp
+                </button>
+                <button
+                  className="btn btn-outline-secondary btn-sm"
+                  onClick={() => navigator.share ? navigator.share({ title: post.title, url: window.location.href }) : navigator.clipboard.writeText(window.location.href)}
+                >
+                  <FaShareAlt className="me-1" /> Share
+                </button>
+              </div>
+            </div>
+
             <div className="mb-4" style={{ lineHeight: 1.8, fontSize: "1.1rem", color: "#333" }}>
               <p>{post.content}</p>
             </div>
@@ -156,6 +189,13 @@ export default function PostDetail() {
                 </div>
               </div>
             )}
+
+            {/* Related Posts or Author Bio could be added here */}
+            <div className="mt-5 pt-4 border-top">
+              <p className="text-muted small">
+                If you enjoyed this post, share it with your friends and stay tuned for more updates from New Generation Music!
+              </p>
+            </div>
           </div>
         </div>
       </div>
